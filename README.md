@@ -5,9 +5,11 @@ Module RBAC provides a web interface for advanced access control and includes fo
 - Allows to create console migrations
 
 [![Latest Stable Version](https://poser.pugx.org/panix/mod-rbac/v/stable)](https://packagist.org/packages/panix/mod-rbac)
+[![Latest Unstable Version](https://poser.pugx.org/panix/mod-rbac/v/unstable)](https://packagist.org/packages/panix/mod-rbac)
 [![Total Downloads](https://poser.pugx.org/panix/mod-rbac/downloads)](https://packagist.org/packages/panix/mod-rbac)
+[![Monthly Downloads](https://poser.pugx.org/panix/mod-rbac/d/monthly)](https://packagist.org/packages/panix/mod-rbac)
+[![Daily Downloads](https://poser.pugx.org/panix/mod-rbac/d/daily)](https://packagist.org/packages/panix/mod-rbac)
 [![License](https://poser.pugx.org/panix/mod-rbac/license)](https://packagist.org/packages/panix/mod-rbac)
-[![Build Status](https://travis-ci.org/panix/mod-rbac.svg?branch=master)](https://travis-ci.org/panix/mod-rbac)
 
 Installation
 ------------
