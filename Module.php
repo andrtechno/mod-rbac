@@ -2,6 +2,7 @@
 
 namespace panix\mod\rbac;
 
+use Yii;
 use panix\engine\WebModule;
 
 /**
@@ -32,21 +33,32 @@ use panix\engine\WebModule;
 class Module extends WebModule
 {
 
-    public $routes = [
-        'rbac/route' => 'rbac/route/index',
-        'rbac/rule' => 'rbac/rule/index',
-        'rbac' => 'rbac/assignment/index',
 
-
-    ];
 
     /**
      * @var string the default route of this module. Defaults to 'default'
      */
-   // public $defaultRoute = 'assignment';
+   public $defaultRoute = 'assignment';
 
     /**
      * @var string the namespace that controller classes are in
      */
    // public $controllerNamespace = 'panix\mod\rbac\controllers';
+
+
+    public function getAdminMenu()
+    {
+        return [
+            'system' => [
+                'items' => [
+                    [
+                        'label' => Yii::t('rbac/default', 'MODULE_NAME'),
+                        'url' => ['/rbac'],
+                        'icon' => $this->icon,
+                    ],
+                ],
+            ],
+        ];
+    }
+
 }

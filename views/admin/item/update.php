@@ -5,13 +5,15 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model \panix\mod\rbac\models\AuthItemModel */
 
+$context = $this->context;
 $labels = $this->context->getLabels();
-$this->title = Yii::t('rbac/default', 'Create ' . $labels['Item']);
+$this->title = Yii::t('rbac/default', 'Update ' . $labels['Item'] . ' : {0}', $model->name);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('rbac/default', $labels['Items']), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
-echo $this->render('/admin/layouts/_sidebar');
+$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->name]];
+$this->params['breadcrumbs'][] = Yii::t('rbac/default', 'Update');
+echo $this->render('/layouts/_sidebar');
 ?>
-<div class="auth-item-create">
+<div class="auth-item-update">
     <h1><?php echo Html::encode($this->title); ?></h1>
     <?php echo $this->render('_form', [
         'model' => $model,

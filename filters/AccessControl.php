@@ -30,20 +30,23 @@ class AccessControl extends \yii\filters\AccessControl
      */
     public function beforeAction($action): bool
     {
-        $controller = $action->controller;
-        $params = ArrayHelper::getValue($this->params, $action->id, []);
+        if (!Yii::$app->request->isAjax && false) {
+            $controller = $action->controller;
+            $params = ArrayHelper::getValue($this->params, $action->id, []);
 
-        if (Yii::$app->user->can('/' . $action->getUniqueId(), $params)) {
-            return true;
-        }
-
-        do {
-            if (Yii::$app->user->can('/' . ltrim($controller->getUniqueId() . '/*', '/'))) {
+            if (Yii::$app->user->can('/' . $action->getUniqueId(), $params)) {
                 return true;
             }
-            $controller = $controller->module;
-        } while ($controller !== null);
 
+            do {
+                if (Yii::$app->user->can('/' . ltrim($controller->getUniqueId() . '/*', '/'))) {
+                    return true;
+                }
+                $controller = $controller->module;
+            } while ($controller !== null);
+        }else{
+            return true;
+        }
         return parent::beforeAction($action);
     }
 

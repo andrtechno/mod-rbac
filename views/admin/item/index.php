@@ -12,7 +12,7 @@ use yii\widgets\Pjax;
 $labels = $this->context->getLabels();
 $this->title = Yii::t('rbac/default', $labels['Items']);
 $this->params['breadcrumbs'][] = $this->title;
-echo $this->render('/admin/layouts/_sidebar');
+echo $this->render('/layouts/_sidebar');
 ?>
 <div class="item-index">
     <h1><?php echo Html::encode($this->title); ?></h1>
