@@ -97,13 +97,14 @@ class AssignmentModel extends BaseObject
         $assigned = [];
 
         foreach (array_keys($this->manager->getRoles()) as $name) {
+
             $available[$name] = 'role';
         }
 
         foreach (array_keys($this->manager->getPermissions()) as $name) {
-            if ($name[0] != '/') {
+           // if ($name[0] != '/') {
                 $available[$name] = 'permission';
-            }
+           // }
         }
 
         foreach ($this->manager->getAssignments($this->userId) as $item) {
