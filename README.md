@@ -155,29 +155,6 @@ class Module extends \yii\base\Module
 
 ```
 
-## Internationalization
-
-All text and messages introduced in this extension are translatable under category 'rbac/default'.
-You may use translations provided within this extension, using following application configuration:
-
-```php
-return [
-    'components' => [
-        'i18n' => [
-            'translations' => [
-                'rbac/default' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
-                    'basePath' => '@yii2mod/rbac/messages',
-                ],
-                // ...
-            ],
-        ],
-        // ...
-    ],
-    // ...
-];
-```
-
 ## Migrations
 
 You can create the console migrations for creating/updating RBAC items.
