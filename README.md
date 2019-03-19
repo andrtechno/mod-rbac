@@ -8,7 +8,6 @@ Module RBAC provides a web interface for advanced access control and includes fo
 [![Total Downloads](https://poser.pugx.org/panix/mod-rbac/downloads)](https://packagist.org/packages/panix/mod-rbac)
 [![License](https://poser.pugx.org/panix/mod-rbac/license)](https://packagist.org/packages/panix/mod-rbac)
 [![Build Status](https://travis-ci.org/panix/mod-rbac.svg?branch=master)](https://travis-ci.org/panix/mod-rbac)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/panix/mod-rbac/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/panix/mod-rbac/?branch=master)
 
 Installation
 ------------

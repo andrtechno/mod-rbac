@@ -43,10 +43,10 @@ class Module extends WebModule
     /**
      * @var string the default route of this module. Defaults to 'default'
      */
-    public $defaultRoute = 'assignment';
+   // public $defaultRoute = 'assignment';
 
     /**
      * @var string the namespace that controller classes are in
      */
-    public $controllerNamespace = 'panix\mod\rbac\controllers';
+   // public $controllerNamespace = 'panix\mod\rbac\controllers';
 }
