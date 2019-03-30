@@ -11,10 +11,10 @@ RbacRouteAsset::register($this);
 
 $this->title = Yii::t('rbac/default', 'Routes');
 $this->params['breadcrumbs'][] = $this->title;
-echo $this->render('../layouts/_sidebar');
+
 ?>
 <h1><?php echo Html::encode($this->title); ?></h1>
-<?php echo Html::a(Yii::t('rbac/default', 'Refresh'), ['refresh'], [
+<?php echo Html::a(Yii::t('rbac/default', 'Refresh'), ['/admin/rbac/route/refresh'], [
     'class' => 'btn btn-primary',
     'id' => 'btn-refresh',
 ]); ?>

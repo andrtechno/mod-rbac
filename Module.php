@@ -34,7 +34,7 @@ class Module extends WebModule
 {
 
 
-
+    public $icon='icon-access';
     /**
      * @var string the default route of this module. Defaults to 'default'
      */
@@ -53,12 +53,38 @@ class Module extends WebModule
                 'items' => [
                     [
                         'label' => Yii::t('rbac/default', 'MODULE_NAME'),
-                        'url' => ['/rbac'],
+                        'url' => '#',
                         'icon' => $this->icon,
+                        'items'=>[
+                            [
+                                'label' => Yii::t('rbac/default', 'Assignments'),
+                                'url' => ['/admin/rbac/assignment/index'],
+                            ],
+                            [
+                                'label' => Yii::t('rbac/default', 'Roles'),
+                                'url' => ['/admin/rbac/role/index'],
+                            ],
+                            [
+                                'label' => Yii::t('rbac/default', 'Permissions'),
+                                'url' => ['/admin/rbac/permission/index'],
+                            ],
+                            [
+                                'label' => Yii::t('rbac/default', 'Routes'),
+                                'url' => ['/admin/rbac/route/index'],
+                            ],
+                            [
+                                'label' => Yii::t('rbac/default', 'Rules'),
+                                'url' => ['/admin/rbac/rule/index'],
+                            ],
+                        ]
                     ],
                 ],
             ],
         ];
     }
+    public function getAdminSidebar()
+    {
 
+        return (new \panix\engine\bootstrap\BackendNav)->findMenu('system')['items'];
+    }
 }

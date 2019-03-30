@@ -12,7 +12,7 @@ use yii\widgets\Pjax;
 
 $this->title = Yii::t('rbac/default', 'Assignments');
 $this->params['breadcrumbs'][] = $this->title;
-echo $this->render('../layouts/_sidebar');
+
 ?>
 <div class="assignment-index">
 

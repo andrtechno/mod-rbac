@@ -9,7 +9,7 @@ $labels = $this->context->getLabels();
 $this->title = Yii::t('rbac/default', 'Create ' . $labels['Item']);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('rbac/default', $labels['Items']), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-echo $this->render('/layouts/_sidebar');
+
 ?>
 <div class="auth-item-create">
     <h1><?php echo Html::encode($this->title); ?></h1>

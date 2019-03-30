@@ -8,7 +8,7 @@ use yii\helpers\Html;
 $this->title = Yii::t('rbac/default', 'Create Rule');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('rbac/default', 'Rules'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-echo $this->render('../layouts/_sidebar');
+
 ?>
 <div class="rule-item-create">
 

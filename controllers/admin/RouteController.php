@@ -4,9 +4,9 @@ namespace panix\mod\rbac\controllers\admin;
 
 use Yii;
 use yii\filters\VerbFilter;
-use panix\engine\controllers\AdminController;
 use yii\web\Response;
 use panix\mod\rbac\models\RouteModel;
+use panix\engine\controllers\AdminController;
 
 /**
  * Class RouteController

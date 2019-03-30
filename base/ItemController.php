@@ -192,7 +192,7 @@ class ItemController extends AdminController
      */
     public function getViewPath(): string
     {
-        return $this->module->getViewPath() . DIRECTORY_SEPARATOR . 'item';
+        return $this->module->getViewPath() . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'item';
     }
 
     /**

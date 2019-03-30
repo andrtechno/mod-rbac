@@ -9,7 +9,7 @@ use yii\widgets\DetailView;
 $this->title = Yii::t('rbac/default', 'Rule : {0}', $model->name);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('rbac/default', 'Rules'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $model->name;
-echo $this->render('../layouts/_sidebar');
+
 ?>
 <div class="rule-item-view">
 

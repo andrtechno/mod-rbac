@@ -14,7 +14,7 @@ $userName = $model->user->{$usernameField};
 $this->title = Yii::t('rbac/default', 'Assignment : {0}', $userName);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('rbac/default', 'Assignments'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $userName;
-echo $this->render('../layouts/_sidebar');
+
 ?>
 <div class="assignment-index">
 
