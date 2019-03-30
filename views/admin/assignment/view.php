@@ -8,12 +8,6 @@ RbacAsset::register($this);
 
 /* @var $this yii\web\View */
 /* @var $model \panix\mod\rbac\models\AssignmentModel */
-/* @var $usernameField string */
-
-$userName = $model->user->{$usernameField};
-$this->title = Yii::t('rbac/default', 'Assignment : {0}', $userName);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('rbac/default', 'Assignments'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $userName;
 
 ?>
 <div class="assignment-index">

@@ -10,9 +10,6 @@ use yii\widgets\Pjax;
 /* @var $dataProvider \yii\data\ArrayDataProvider */
 /* @var $searchModel \panix\mod\rbac\models\search\AssignmentSearch */
 
-$this->title = Yii::t('rbac/default', 'Assignments');
-$this->params['breadcrumbs'][] = $this->title;
-
 ?>
 <div class="assignment-index">
 
@@ -25,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => ArrayHelper::merge($gridViewColumns, [
             [
-                'class' => 'yii\grid\ActionColumn',
+                'class' => 'panix\engine\grid\columns\ActionColumn',
                 'template' => '{view}',
             ],
         ]),

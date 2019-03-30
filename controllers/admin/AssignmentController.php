@@ -103,6 +103,13 @@ class AssignmentController extends AdminController
             $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         }
 
+        $this->pageName = Yii::t('rbac/default', 'Assignments');
+        $this->breadcrumbs[] = [
+            'label' => Yii::t('rbac/default', 'MODULE_NAME'),
+            'url' => ['/admin/rbac']
+        ];
+        $this->breadcrumbs[] = $this->pageName;
+
         return $this->render('index', [
             'dataProvider' => $dataProvider,
             'searchModel' => $searchModel,
@@ -121,9 +128,21 @@ class AssignmentController extends AdminController
     {
         $model = $this->findModel($id);
 
+        $userName = $model->user->{$this->usernameField};
+
+        $this->pageName = Yii::t('rbac/default', 'Assignment: {0}', $userName);
+        $this->breadcrumbs[] = [
+            'label' => Yii::t('rbac/default', 'MODULE_NAME'),
+            'url' => ['/admin/rbac']
+        ];
+        $this->breadcrumbs[] = [
+            'label' => Yii::t('rbac/default', 'Assignments'),
+            'url' => ['/admin/rbac/assignment']
+        ];
+        $this->breadcrumbs[] = $this->pageName;
+
         return $this->render('view', [
             'model' => $model,
-            'usernameField' => $this->usernameField,
         ]);
     }
 

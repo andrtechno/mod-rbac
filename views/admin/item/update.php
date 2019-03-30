@@ -2,20 +2,20 @@
 
 use yii\helpers\Html;
 use panix\mod\rbac\RbacAsset;
+use panix\mod\rbac\models\AuthItemModel;
 
 $modelClass = Yii::createObject(\panix\mod\rbac\models\RouteModel::class);
 
-$test = new \panix\mod\rbac\models\AssignmentModel(\mdm\admin\models\User::findOne(Yii::$app->user->id), []);
+$test2 = AuthItemModel::find('admin')->getItemsByBackend();
 
 
-$test2 = \panix\mod\rbac\models\AuthItemModel::find('admin')->getItems();
 
-print_r(array_keys($test2['assigned']));
-//echo \yii\helpers\VarDumper::dump($test->getItems(),10,true);
+print_r($test2['assigned']);
+
 
 RbacAsset::register($this);
 /* @var $this yii\web\View */
-/* @var $model \panix\mod\rbac\models\AuthItemModel */
+/* @var $model AuthItemModel */
 
 
 $context = $this->context;
@@ -55,24 +55,25 @@ foreach ($modelClass->getAvailableAndAssignedRoutes()['assigned'] as $item) {
             echo \panix\ext\bootstrapselect\BootstrapSelect::widget([
                 'name' => 'items',
                 'value' => array_keys($test2['assigned']),
-                'items' => $items,
+                'items' => $test2,
                 'options' => [
                     'multiple' => true
                 ],
                 'jsOptions' => [
+                    'width' => '100%',
                     'liveSearch' => true,
                     'dropupAuto' => false,
-                    'dropdownAlignRight' => 'auto'
+                    'dropdownAlignRight' => false
                 ]
             ]);
 
-            echo Html::dropDownList('items2', array_keys($test2['assigned']), $items, [
-                'class' => 'form-control',
-                // 'data-target' => 'assigned',
-                'id' => 'item',
-                'data->id' => Yii::$app->request->get('id'),
-                'multiple' => true
-            ]);
+            /* echo Html::dropDownList('items2', array_keys($test2['assigned']), $items, [
+                 'class' => 'form-control',
+                 // 'data-target' => 'assigned',
+                 'id' => 'item',
+                 'data->id' => Yii::$app->request->get('id'),
+                 'multiple' => true
+             ]);*/
 
             //print_r($model->getAvailableAndAssignedRoutes()['assigned']);
             ?>
