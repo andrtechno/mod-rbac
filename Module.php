@@ -34,16 +34,16 @@ class Module extends WebModule
 {
 
 
-    public $icon='icon-access';
+    public $icon = '';
     /**
      * @var string the default route of this module. Defaults to 'default'
      */
-   public $defaultRoute = 'assignment';
+    public $defaultRoute = 'assignment';
 
     /**
      * @var string the namespace that controller classes are in
      */
-   // public $controllerNamespace = 'panix\mod\rbac\controllers';
+    // public $controllerNamespace = 'panix\mod\rbac\controllers';
 
 
     public function getAdminMenu()
@@ -55,7 +55,7 @@ class Module extends WebModule
                         'label' => Yii::t('rbac/default', 'MODULE_NAME'),
                         'url' => '#',
                         'icon' => $this->icon,
-                        'items'=>[
+                        'items' => [
                             [
                                 'label' => Yii::t('rbac/default', 'Assignments'),
                                 'url' => ['/admin/rbac/assignment/index'],
@@ -82,6 +82,7 @@ class Module extends WebModule
             ],
         ];
     }
+
     public function getAdminSidebar()
     {
 

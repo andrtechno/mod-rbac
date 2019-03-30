@@ -7,23 +7,35 @@ use yii\widgets\ActiveForm;
 /* @var $model \panix\mod\rbac\models\BizRuleModel */
 /* @var $form ActiveForm */
 ?>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card bg-light">
+            <div class="card-body">
 
-<div class="rule-item-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+                <div class="rule-item-form">
 
-    <?php echo $form->field($model, 'name')->textInput(['maxlength' => 64]); ?>
+                    <?php $form = ActiveForm::begin(); ?>
 
-    <?php echo $form->field($model, 'className')->textInput(); ?>
+                    <?php echo $form->field($model, 'name')->textInput(['maxlength' => 64]); ?>
 
-    <div class="form-group">
-        <?php echo Html::submitButton(
-            $model->getIsNewRecord() ? Yii::t('rbac/default', 'Create') : Yii::t('rbac/default', 'Update'),
-            [
-                'class' => $model->getIsNewRecord() ? 'btn btn-success' : 'btn btn-primary',
-            ]
-        ); ?>
+                    <?php echo $form->field($model, 'className')->textInput(); ?>
+
+                    <div class="form-group">
+                        <?php echo Html::submitButton(
+                            $model->getIsNewRecord() ? Yii::t('rbac/default', 'Create') : Yii::t('rbac/default', 'Update'),
+                            [
+                                'class' => $model->getIsNewRecord() ? 'btn btn-success' : 'btn btn-primary',
+                            ]
+                        ); ?>
+                    </div>
+
+                    <?php ActiveForm::end(); ?>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <?php ActiveForm::end(); ?>
+    <div class="col-md-6">
+        dsadsadsa
+    </div>
 </div>

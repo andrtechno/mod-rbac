@@ -11,11 +11,24 @@ $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id
 $this->params['breadcrumbs'][] = Yii::t('rbac/default', 'Update');
 
 ?>
+
 <div class="rule-item-update">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card bg-light">
+                <div class="card-header">
+                    <h5><?php echo Html::encode($this->title); ?></h5>
+                </div>
+                <div class="card-body">
 
-    <h1><?php echo Html::encode($this->title); ?></h1>
-
-    <?php echo $this->render('_form', [
-        'model' => $model,
-    ]); ?>
+                    <?php echo $this->render('_form', [
+                        'model' => $model,
+                    ]); ?>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            dsadsadsa
+        </div>
+    </div>
 </div>

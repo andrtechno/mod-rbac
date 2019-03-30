@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use panix\engine\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model panix\mod\rbac\models\AuthItemModel */
@@ -11,14 +11,10 @@ use yii\widgets\ActiveForm;
 
 ?>
 <div class="auth-item-form">
-
     <?php $form = ActiveForm::begin(); ?>
-
-    <?php echo $form->field($model, 'name')->textInput(['maxlength' => 64]); ?>
-
-    <?php echo $form->field($model, 'description')->textarea(['rows' => 2]); ?>
-
-    <?php echo $form->field($model, 'ruleName')->widget('yii\jui\AutoComplete', [
+    <?= $form->field($model, 'name')->textInput(['maxlength' => 64]); ?>
+    <?= $form->field($model, 'description')->textarea(['rows' => 2]); ?>
+    <?= $form->field($model, 'ruleName')->widget('yii\jui\AutoComplete', [
         'options' => [
             'class' => 'form-control',
         ],
@@ -27,11 +23,10 @@ use yii\widgets\ActiveForm;
         ],
     ]);
     ?>
+    <?= $form->field($model, 'data')->textarea(['rows' => 6]); ?>
 
-    <?php echo $form->field($model, 'data')->textarea(['rows' => 6]); ?>
-
-    <div class="form-group">
-        <?php echo Html::submitButton($model->getIsNewRecord() ? Yii::t('rbac/default', 'Create') : Yii::t('rbac/default', 'Update'), ['class' => $model->getIsNewRecord() ? 'btn btn-success' : 'btn btn-primary']); ?>
+    <div class="form-group text-center">
+        <?= Html::submitButton($model->getIsNewRecord() ? Yii::t('rbac/default', 'Create') : Yii::t('rbac/default', 'Update'), ['class' => $model->getIsNewRecord() ? 'btn btn-success' : 'btn btn-primary']); ?>
     </div>
 
     <?php ActiveForm::end(); ?>

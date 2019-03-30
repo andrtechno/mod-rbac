@@ -17,6 +17,7 @@
         }
     ],
     "require": {
+        "panix/wgt-bootstrap-select": "*",
         "2amigos/yii2-arrayquery-component": "~1.0"
     },
     "require-dev": {

@@ -18,6 +18,21 @@ $('.btn-assign').click(function () {
     return false;
 });
 
+
+$('.btn-assign2').click(function () {
+
+    var $this = $(this);
+    var target = $this.data('target');
+    var items = $(target).val();
+    console.log('click',items);
+    if (items && items.length) {
+        $.post($this.attr('href'), {items: items}, function (r) {
+            updateItems(r);
+        });
+    }
+    return false;
+});
+
 $('.search[data-target]').keyup(function () {
     search($(this).data('target'));
 });
@@ -46,5 +61,5 @@ function search(target) {
 }
 
 // initial
-search('available');
-search('assigned');
+//search('available');
+//search('assigned');

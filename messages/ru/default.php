@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'MODULE_NAME' => 'RBAC',
+    'MODULE_NAME' => 'Права доступа',
     '\'{class}\' must extend from \'yii\\rbac\\Rule\' or its child class' => 'Класс должен быть унаследован от \'yii\\rbac\\Rule\' или его дочерних классов',
     'Action' => 'Действие',
     'Are you sure to delete this item?' => 'Вы действительно хотите удалить этот элемент?',
