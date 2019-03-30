@@ -22,6 +22,6 @@ $this->params['breadcrumbs'][] = $this->title;
     'opts' => Json::htmlEncode([
         'items' => $routes,
     ]),
-    'assignUrl' => ['assign'],
-    'removeUrl' => ['remove'],
+    'assignUrl' => ['/admin/rbac/route/assign'],
+    'removeUrl' => ['/admin/rbac/route/remove'],
 ]); ?>

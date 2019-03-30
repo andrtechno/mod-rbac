@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use panix\engine\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model \panix\mod\rbac\models\BizRuleModel */

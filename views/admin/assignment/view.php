@@ -18,8 +18,8 @@ RbacAsset::register($this);
         'opts' => Json::htmlEncode([
             'items' => $model->getItems(),
         ]),
-        'assignUrl' => ['assign', 'id' => $model->userId],
-        'removeUrl' => ['remove', 'id' => $model->userId],
+        'assignUrl' => ['/admin/rbac/test2/assign', 'id' => $model->userId],
+        'removeUrl' => ['/admin/rbac/test2/remove', 'id' => $model->userId],
     ]); ?>
 
 </div>

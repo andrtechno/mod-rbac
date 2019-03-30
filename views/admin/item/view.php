@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $model->name;
         'opts' => Json::htmlEncode([
             'items' => $model->getItems(),
         ]),
-        'assignUrl' => ['assign', 'id' => $model->name],
-        'removeUrl' => ['remove', 'id' => $model->name],
+        'assignUrl' => ['/admin/rbac/test/assign', 'id' => $model->name],
+        'removeUrl' => ['/admin/rbac/test/remove', 'id' => $model->name],
     ]); ?>
 </div>

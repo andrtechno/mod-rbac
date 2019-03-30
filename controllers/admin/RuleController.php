@@ -54,6 +54,15 @@ class RuleController extends AdminController
         $searchModel = Yii::createObject($this->searchClass);
         $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
 
+        $this->pageName = Yii::t('rbac/default', 'Rules');
+        $this->buttons = [
+            [
+                'label' => Yii::t('rbac/default', 'Create Rule'),
+                'url' => ['/admin/rbac/rule/create'],
+                'options' => ['class' => 'btn btn-success']
+            ]
+        ];
+
         return $this->render('index', [
             'dataProvider' => $dataProvider,
             'searchModel' => $searchModel,
