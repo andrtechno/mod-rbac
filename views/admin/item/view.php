@@ -14,7 +14,7 @@ $labels = $this->context->getLabels();
 $this->title = Yii::t('rbac/default', $labels['Item'] . ' : {0}', $model->name);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('rbac/default', $labels['Items']), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $model->name;
-echo $this->render('../layouts/_sidebar');
+
 ?>
 <div class="auth-item-view">
     <h1><?php echo Html::encode($this->title); ?></h1>
