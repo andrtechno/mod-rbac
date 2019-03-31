@@ -43,7 +43,7 @@ class Module extends WebModule
     /**
      * @var string the namespace that controller classes are in
      */
-    // public $controllerNamespace = 'panix\mod\rbac\controllers';
+     //public $controllerNamespace = 'panix\mod\rbac\admin\controllers';
 
 
     public function getAdminMenu()
@@ -85,7 +85,6 @@ class Module extends WebModule
 
     public function getAdminSidebar()
     {
-
         return (new \panix\engine\bootstrap\BackendNav)->findMenu('system')['items'];
     }
 }
