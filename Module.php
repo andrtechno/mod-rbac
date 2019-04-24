@@ -2,6 +2,7 @@
 
 namespace panix\mod\rbac;
 
+use panix\mod\admin\widgets\sidebar\BackendNav;
 use Yii;
 use panix\engine\WebModule;
 
@@ -85,6 +86,6 @@ class Module extends WebModule
 
     public function getAdminSidebar()
     {
-        return (new \panix\engine\bootstrap\BackendNav)->findMenu('system')['items'];
+        return (new BackendNav())->findMenu('system')['items'];
     }
 }
