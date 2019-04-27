@@ -30,7 +30,7 @@ class AccessControl extends \yii\filters\AccessControl
      */
     public function beforeAction($action): bool
     {
-        if (!Yii::$app->request->isAjax && false) {
+        if (!Yii::$app->request->isAjax) {
             $controller = $action->controller;
             $params = ArrayHelper::getValue($this->params, $action->id, []);
 
