@@ -30,7 +30,11 @@ class AccessControl extends \yii\filters\AccessControl
      */
     public function beforeAction($action): bool
     {
+        if (Yii::$app->user->can('/admin/*')) {//SuperAdmin
+            return true;
+        }
         if (!Yii::$app->request->isAjax) {
+
             $controller = $action->controller;
             $params = ArrayHelper::getValue($this->params, $action->id, []);
 
@@ -44,7 +48,8 @@ class AccessControl extends \yii\filters\AccessControl
                 }
                 $controller = $controller->module;
             } while ($controller !== null);
-        }else{
+
+        } else {
             return true;
         }
         return parent::beforeAction($action);
