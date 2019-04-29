@@ -228,7 +228,7 @@ class ItemController extends AdminController
         $item = $this->type === Item::TYPE_ROLE ? $auth->getRole($id) : $auth->getPermission($id);
 
         if (empty($item)) {
-            throw new NotFoundHttpException(Yii::t('rbac/default', 'The requested page does not exist.'));
+            $this->error404();
         }
 
         return new AuthItemModel($item);

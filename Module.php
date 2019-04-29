@@ -58,23 +58,23 @@ class Module extends WebModule
                         'icon' => $this->icon,
                         'items' => [
                             [
-                                'label' => Yii::t('rbac/default', 'Assignments'),
+                                'label' => Yii::t('rbac/default', 'ASSIGNMENTS'),
                                 'url' => ['/admin/rbac/assignment/index'],
                             ],
                             [
-                                'label' => Yii::t('rbac/default', 'Roles'),
+                                'label' => Yii::t('rbac/default', 'ROLES'),
                                 'url' => ['/admin/rbac/role/index'],
                             ],
                             [
-                                'label' => Yii::t('rbac/default', 'Permissions'),
+                                'label' => Yii::t('rbac/default', 'PERMISSIONS'),
                                 'url' => ['/admin/rbac/permission/index'],
                             ],
                             [
-                                'label' => Yii::t('rbac/default', 'Routes'),
+                                'label' => Yii::t('rbac/default', 'ROUTES'),
                                 'url' => ['/admin/rbac/route/index'],
                             ],
                             [
-                                'label' => Yii::t('rbac/default', 'Rules'),
+                                'label' => Yii::t('rbac/default', 'RULES'),
                                 'url' => ['/admin/rbac/rule/index'],
                             ],
                         ]

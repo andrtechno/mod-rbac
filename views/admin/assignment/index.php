@@ -1,6 +1,6 @@
 <?php
 
-use yii\grid\GridView;
+use panix\engine\grid\GridView;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
@@ -13,7 +13,7 @@ use yii\widgets\Pjax;
 ?>
 <div class="assignment-index">
 
-    <h1><?php echo Html::encode($this->title); ?></h1>
+    <h1><?php echo Html::encode($this->context->pageName); ?></h1>
 
     <?php Pjax::begin(['timeout' => 5000]); ?>
 

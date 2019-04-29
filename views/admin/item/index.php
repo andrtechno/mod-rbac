@@ -1,6 +1,6 @@
 <?php
 
-use yii\grid\GridView;
+use panix\engine\grid\GridView;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\Pjax;

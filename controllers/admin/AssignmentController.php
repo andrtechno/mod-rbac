@@ -103,7 +103,7 @@ class AssignmentController extends AdminController
             $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         }
 
-        $this->pageName = Yii::t('rbac/default', 'Assignments');
+        $this->pageName = Yii::t('rbac/default', 'ASSIGNMENTS');
         $this->breadcrumbs[] = [
             'label' => Yii::t('rbac/default', 'MODULE_NAME'),
             'url' => ['/admin/rbac']
