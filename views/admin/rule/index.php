@@ -16,6 +16,7 @@ use yii\widgets\Pjax;
     <?php echo GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'layoutOptions' => ['title' => $this->context->pageName],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             [

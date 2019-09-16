@@ -12,8 +12,6 @@ RbacAsset::register($this);
 ?>
 <div class="assignment-index">
 
-    <h1><?php echo Html::encode($this->title); ?></h1>
-
     <?php echo $this->render('../_dualListBox', [
         'opts' => Json::htmlEncode([
             'items' => $model->getItems(),

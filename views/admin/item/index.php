@@ -10,12 +10,12 @@ use yii\widgets\Pjax;
 /* @var $searchModel \panix\mod\rbac\models\search\AuthItemSearch */
 
 $labels = $this->context->getLabels();
-$this->title = Yii::t('rbac/default', $labels['Items']);
+$this->context->pageName = Yii::t('rbac/default', $labels['Items']);
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="item-index">
-    <h1><?php echo Html::encode($this->title); ?></h1>
+
     <p>
         <?php echo Html::a(Yii::t('rbac/default', 'Create ' . $labels['Item']), ['create'], ['class' => 'btn btn-success']); ?>
     </p>

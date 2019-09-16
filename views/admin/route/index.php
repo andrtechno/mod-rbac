@@ -17,10 +17,7 @@ RbacRouteAsset::register($this);
     </div>
     <div class="card-body">
         <div class="col">
-            <?php echo Html::a(Yii::t('rbac/default', 'REFRESH'), ['/admin/rbac/route/refresh'], [
-                'class' => 'btn btn-primary',
-                'id' => 'btn-refresh',
-            ]); ?>
+
             <?php echo $this->render('../_dualListBox', [
                 'opts' => Json::htmlEncode([
                     'items' => $routes,

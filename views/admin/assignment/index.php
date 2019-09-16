@@ -12,14 +12,12 @@ use yii\widgets\Pjax;
 
 ?>
 <div class="assignment-index">
-
-    <h1><?php echo Html::encode($this->context->pageName); ?></h1>
-
     <?php Pjax::begin(['timeout' => 5000]); ?>
 
     <?php echo GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'layoutOptions' => ['title' => $this->context->pageName],
         'columns' => ArrayHelper::merge($gridViewColumns, [
             [
                 'class' => 'panix\engine\grid\columns\ActionColumn',

@@ -67,7 +67,7 @@ class ItemController extends AdminController
      * Lists of all auth items
      *
      * @return mixed
-     */
+
     public function actionIndex()
     {
         $searchModel = Yii::createObject($this->searchClass);
@@ -78,7 +78,7 @@ class ItemController extends AdminController
             'dataProvider' => $dataProvider,
             'searchModel' => $searchModel,
         ]);
-    }
+    }*/
 
     /**
      * Displays a single AuthItem model.
@@ -100,7 +100,7 @@ class ItemController extends AdminController
      * If creation is successful, the browser will be redirected to the 'view' page.
      *
      * @return mixed
-     */
+
     public function actionCreate()
     {
         $model = new AuthItemModel();
@@ -113,7 +113,7 @@ class ItemController extends AdminController
         }
 
         return $this->render('create', ['model' => $model]);
-    }
+    }*/
 
     /**
      * Updates an existing AuthItem model.
@@ -123,7 +123,7 @@ class ItemController extends AdminController
      * @param string $id
      *
      * @return mixed
-     */
+
     public function actionUpdate(string $id)
     {
         $model = $this->findModel($id);
@@ -135,7 +135,7 @@ class ItemController extends AdminController
         }
 
         return $this->render('update', ['model' => $model]);
-    }
+    } */
 
     /**
      * Deletes an existing AuthItem model.
@@ -189,11 +189,11 @@ class ItemController extends AdminController
 
     /**
      * @inheritdoc
-     */
+
     public function getViewPath(): string
     {
         return $this->module->getViewPath() . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'item';
-    }
+    }*/
 
     /**
      * @return int

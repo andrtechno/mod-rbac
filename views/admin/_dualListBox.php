@@ -18,6 +18,10 @@ $this->registerJs("var _opts = {$opts};", View::POS_BEGIN);
         <select multiple size="20" class="form-control list" data-target="available"></select>
     </div>
     <div class="col-lg-2">
+        <?php echo Html::a(Yii::t('rbac/default', 'REFRESH'), ['/admin/rbac/route/refresh'], [
+            'class' => 'btn btn-primary',
+            'id' => 'btn-refresh',
+        ]); ?>
         <div class="move-buttons">
             <br><br>
             <?php echo Html::a('&gt;&gt;', $assignUrl, [
