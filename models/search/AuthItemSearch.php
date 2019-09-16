@@ -4,7 +4,7 @@ namespace panix\mod\rbac\models\search;
 
 use dosamigos\arrayquery\ArrayQuery;
 use Yii;
-use yii\base\Model;
+use panix\engine\base\Model;
 use yii\data\ArrayDataProvider;
 use yii\rbac\Item;
 
@@ -55,7 +55,7 @@ class AuthItemSearch extends Model
     /**
      * @inheritdoc
      */
-    public function attributeLabels(): array
+    public function attributeLabels2(): array
     {
         return [
             'name' => Yii::t('rbac/default', 'Name'),
@@ -71,7 +71,7 @@ class AuthItemSearch extends Model
      *
      * @param array $params
      *
-     * @return \yii\data\ArrayDataProvider
+     * @return ArrayDataProvider
      */
     public function search(array $params): ArrayDataProvider
     {

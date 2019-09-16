@@ -8,7 +8,7 @@ return [
     'Assign' => 'Назначить',
     'ASSIGNMENT' => 'Назначение : {0}',
     'ASSIGNMENTS' => 'Назначения',
-    'Class Name' => 'Имя класса',
+
     'CREATE_RULE' => 'Создать правило',
     'Data' => 'Данные',
     'Delete' => 'Удалить',
@@ -16,7 +16,7 @@ return [
     'Invalid rule "{value}"' => 'Некорректное правило "{value}"',
     'Item has been removed.' => 'Элемент был удален.',
     'Item has been saved.' => 'Элемент сохранен.',
-    'NAME' => 'Имя',
+
     'PERMISSIONS' => 'Разрешения',
     'REFRESH' => 'Обновить',
     'Remove' => 'Удалить',

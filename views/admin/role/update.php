@@ -18,11 +18,6 @@ RbacAsset::register($this);
 /* @var $model AuthItemModel */
 
 
-$context = $this->context;
-$labels = $this->context->getLabels();
-
-
-
 $items = [];
 foreach ($modelClass->getAvailableAndAssignedRoutes()['assigned'] as $item) {
     $items[$item] = $item;

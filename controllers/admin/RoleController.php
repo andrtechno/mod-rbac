@@ -6,6 +6,7 @@ use Yii;
 use yii\rbac\Item;
 use panix\mod\rbac\base\ItemController;
 use panix\mod\rbac\models\AuthItemModel;
+use panix\mod\rbac\models\search\AuthItemSearch;
 
 /**
  * Class RoleController
@@ -17,8 +18,8 @@ class RoleController extends ItemController
 
     public function actionIndex()
     {
-        $searchModel = Yii::createObject($this->searchClass);
-        $searchModel->type = $this->type;
+        $searchModel = new AuthItemSearch();
+        $searchModel->type = Item::TYPE_ROLE;
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $this->pageName = Yii::t('rbac/default', 'ROLES');
 
@@ -43,9 +44,13 @@ class RoleController extends ItemController
     }
 
 
+
     public function actionUpdate(string $id)
     {
         $model = $this->findModel($id);
+        //$this->type = Item::TYPE_ROLE;
+
+
         $this->pageName = Yii::t('rbac/default', 'UPDATE_ROLE', $model->name);
         $this->breadcrumbs[] = [
             'label' => Yii::t('rbac/default', 'MODULE_NAME'),
@@ -92,5 +97,17 @@ class RoleController extends ItemController
         }
 
         return $this->render('create', ['model' => $model]);
+    }
+
+    protected function findModel(string $id): AuthItemModel
+    {
+        $auth = Yii::$app->getAuthManager();
+        $item = $auth->getRole($id);
+
+        if (empty($item)) {
+            $this->error404();
+        }
+
+        return new AuthItemModel($item);
     }
 }

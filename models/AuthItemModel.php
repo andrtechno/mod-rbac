@@ -3,7 +3,7 @@
 namespace panix\mod\rbac\models;
 
 use Yii;
-use yii\base\Model;
+use panix\engine\base\Model;
 use yii\helpers\Json;
 use yii\rbac\Item;
 use yii\rbac\Rule;
@@ -136,7 +136,7 @@ class AuthItemModel extends Model
     /**
      * @inheritdoc
      */
-    public function attributeLabels(): array
+    public function attributeLabels2(): array
     {
         return [
             'name' => Yii::t('rbac/default', 'Name'),

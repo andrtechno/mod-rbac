@@ -130,13 +130,13 @@ class AssignmentController extends AdminController
 
         $userName = $model->user->{$this->usernameField};
 
-        $this->pageName = Yii::t('rbac/default', 'Assignment: {0}', $userName);
+        $this->pageName = Yii::t('rbac/default', 'ASSIGNMENT', $userName);
         $this->breadcrumbs[] = [
             'label' => Yii::t('rbac/default', 'MODULE_NAME'),
             'url' => ['/admin/rbac']
         ];
         $this->breadcrumbs[] = [
-            'label' => Yii::t('rbac/default', 'Assignments'),
+            'label' => Yii::t('rbac/default', 'ASSIGNMENTS'),
             'url' => ['/admin/rbac/assignment']
         ];
         $this->breadcrumbs[] = $this->pageName;
@@ -196,6 +196,6 @@ class AssignmentController extends AdminController
             return new AssignmentModel($user);
         }
 
-        throw new NotFoundHttpException(Yii::t('rbac/default', 'The requested page does not exist.'));
+        $this->error404();
     }
 }

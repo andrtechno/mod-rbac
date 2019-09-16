@@ -2,14 +2,14 @@
 
 namespace panix\mod\rbac\base;
 
-use panix\engine\controllers\AdminController;
+
 use Yii;
 use yii\filters\VerbFilter;
 use yii\rbac\Item;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 use panix\mod\rbac\models\AuthItemModel;
-use panix\mod\rbac\models\search\AuthItemSearch;
+use panix\engine\controllers\AdminController;
 
 /**
  * Class ItemController
@@ -18,12 +18,6 @@ use panix\mod\rbac\models\search\AuthItemSearch;
  */
 class ItemController extends AdminController
 {
-    /**
-     * @var string search class name for auth items search
-     */
-    public $searchClass = [
-        'class' => AuthItemSearch::class,
-    ];
 
     /**
      * @var int Type of Auth Item
@@ -64,23 +58,6 @@ class ItemController extends AdminController
     }
 
     /**
-     * Lists of all auth items
-     *
-     * @return mixed
-
-    public function actionIndex()
-    {
-        $searchModel = Yii::createObject($this->searchClass);
-        $searchModel->type = $this->type;
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
-            'dataProvider' => $dataProvider,
-            'searchModel' => $searchModel,
-        ]);
-    }*/
-
-    /**
      * Displays a single AuthItem model.
      *
      * @param string $id
@@ -93,49 +70,6 @@ class ItemController extends AdminController
 
         return $this->render('view', ['model' => $model]);
     }
-
-    /**
-     * Creates a new AuthItem model.
-     *
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     *
-     * @return mixed
-
-    public function actionCreate()
-    {
-        $model = new AuthItemModel();
-        $model->type = $this->type;
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', Yii::t('rbac/default', 'Item has been saved.'));
-
-            return $this->redirect(['view', 'id' => $model->name]);
-        }
-
-        return $this->render('create', ['model' => $model]);
-    }*/
-
-    /**
-     * Updates an existing AuthItem model.
-     *
-     * If update is successful, the browser will be redirected to the 'view' page.
-     *
-     * @param string $id
-     *
-     * @return mixed
-
-    public function actionUpdate(string $id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', Yii::t('rbac/default', 'Item has been saved.'));
-
-            return $this->redirect(['view', 'id' => $model->name]);
-        }
-
-        return $this->render('update', ['model' => $model]);
-    } */
 
     /**
      * Deletes an existing AuthItem model.

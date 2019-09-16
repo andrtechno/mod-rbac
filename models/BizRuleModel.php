@@ -3,8 +3,8 @@
 namespace panix\mod\rbac\models;
 
 use Yii;
-use yii\base\Model;
 use yii\rbac\Rule;
+use panix\engine\base\Model;
 
 /**
  * Class BizRuleModel
@@ -13,6 +13,9 @@ use yii\rbac\Rule;
  */
 class BizRuleModel extends Model
 {
+
+    public $module = 'rbac';
+
     /**
      * @var string name of the rule
      */
@@ -90,7 +93,7 @@ class BizRuleModel extends Model
 
         if (!is_subclass_of($this->className, Rule::class)) {
             $message = Yii::t('rbac/default', "'{class}' must extend from 'yii\\rbac\\Rule' or its child class", [
-                'class' => $this->className, ]);
+                'class' => $this->className,]);
             $this->addError('className', $message);
         }
     }
@@ -98,7 +101,7 @@ class BizRuleModel extends Model
     /**
      * @inheritdoc
      */
-    public function attributeLabels(): array
+    public function attributeLabels2(): array
     {
         return [
             'name' => Yii::t('rbac/default', 'Name'),

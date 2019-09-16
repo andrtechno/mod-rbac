@@ -6,6 +6,7 @@ use Yii;
 use yii\rbac\Item;
 use panix\mod\rbac\base\ItemController;
 use panix\mod\rbac\models\AuthItemModel;
+use panix\mod\rbac\models\search\AuthItemSearch;
 
 /**
  * Class PermissionController
@@ -17,8 +18,9 @@ class PermissionController extends ItemController
 
     public function actionIndex()
     {
-        $searchModel = Yii::createObject($this->searchClass);
-        $searchModel->type = $this->type;
+        $searchModel = new AuthItemSearch();
+        $searchModel->type = Item::TYPE_PERMISSION;
+
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $this->pageName = Yii::t('rbac/default', 'PERMISSIONS');
 
@@ -43,6 +45,31 @@ class PermissionController extends ItemController
     }
 
 
+
+    public function actionUpdate(string $id)
+    {
+        $this->type = Item::TYPE_PERMISSION;
+        $model = $this->findModel($id);
+
+        $this->pageName = Yii::t('rbac/default', 'UPDATE_PERMISSION', $model->name);
+        $this->breadcrumbs[] = [
+            'label' => Yii::t('rbac/default', 'MODULE_NAME'),
+            'url' => ['#'],
+        ];
+        $this->breadcrumbs[] = [
+            'label' => Yii::t('rbac/default', 'PERMISSIONS'),
+            'url' => ['index'],
+        ];
+        $this->breadcrumbs[] = $this->pageName;
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', Yii::t('rbac/default', 'Item has been saved.'));
+
+            return $this->redirect(['view', 'id' => $model->name]);
+        }
+
+        return $this->render('update', ['model' => $model]);
+    }
 
     public function actionCreate()
     {
@@ -70,5 +97,17 @@ class PermissionController extends ItemController
         }
 
         return $this->render('create', ['model' => $model]);
+    }
+
+    protected function findModel(string $id): AuthItemModel
+    {
+        $auth = Yii::$app->getAuthManager();
+        $item = $auth->getPermission($id);
+
+        if (empty($item)) {
+            $this->error404();
+        }
+
+        return new AuthItemModel($item);
     }
 }
