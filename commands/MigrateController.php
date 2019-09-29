@@ -15,13 +15,13 @@ use yii\helpers\Console;
  *
  * ```
  * # creates a new migration named 'create_rule'
- * yii rbac/migrate/create create_rule
+ * cmd rbac/migrate/create create_rule
  *
  * # applies ALL new migrations
- * yii rbac/migrate
+ * cmd rbac/migrate
  *
  * # reverts the last applied migration
- * yii rbac/migrate/down
+ * cmd rbac/migrate/down
  * ```
  */
 class MigrateController extends BaseMigrateController
@@ -34,12 +34,13 @@ class MigrateController extends BaseMigrateController
     /**
      * @inheritdoc
      */
-    public $migrationTable = '{{%auth_migration}}';
+    public $migrationTable = '{{%migration}}';
 
     /**
      * @inheritdoc
      */
-    public $migrationPath = '@app/rbac/migrations';
+    public $migrationPath = '@yii/rbac/migrations';
+    //public $migrationPath = '@vendor/panix/mod-rbac/migrations';
 
     /**
      * @inheritdoc

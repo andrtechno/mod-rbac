@@ -3,7 +3,7 @@
 namespace panix\mod\rbac\migrations;
 
 use yii\base\Component;
-use yii\base\InvalidParamException;
+use yii\base\InvalidArgumentException;
 use yii\db\MigrationInterface;
 use yii\di\Instance;
 use yii\rbac\DbManager;
@@ -330,7 +330,7 @@ class Migration extends Component implements MigrationInterface
     {
         $role = $this->authManager->getRole($name);
         if (empty($role)) {
-            throw new InvalidParamException("Role '{$role}' does not exists");
+            throw new InvalidArgumentException("Role '{$role}' does not exists");
         }
         echo "    > removing role $role->name ...";
         $time = microtime(true);
@@ -373,7 +373,7 @@ class Migration extends Component implements MigrationInterface
     {
         $permission = $this->authManager->getPermission($name);
         if (empty($permission)) {
-            throw new InvalidParamException("Permission '{$permission}' does not exists");
+            throw new InvalidArgumentException("Permission '{$permission}' does not exists");
         }
         echo "    > removing permission $permission->name ...";
         $time = microtime(true);
@@ -413,7 +413,7 @@ class Migration extends Component implements MigrationInterface
     {
         $rule = $this->authManager->getRule($ruleName);
         if (empty($rule)) {
-            throw new InvalidParamException("Rule '{$ruleName}' does not exists");
+            throw new InvalidArgumentException("Rule '{$ruleName}' does not exists");
         }
         echo "    > removing rule $rule->name ...";
         $time = microtime(true);

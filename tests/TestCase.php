@@ -68,7 +68,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
                     'translations' => [
                         'rbac/default' => [
                             'class' => 'yii\i18n\PhpMessageSource',
-                            'basePath' => '@yii2mod/rbac/messages',
+                            'basePath' => '@vendor/panix/mod-rbac/messages',
                         ],
                     ],
                 ],
