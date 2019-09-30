@@ -3,7 +3,6 @@
 namespace panix\mod\rbac\migrations;
 
 use yii\db\MigrationInterface;
-
 /**
  * Class Migration
  *
@@ -66,5 +65,4 @@ class Migration extends \panix\engine\db\Migration implements MigrationInterface
             return false;
         }
     }
-
 }

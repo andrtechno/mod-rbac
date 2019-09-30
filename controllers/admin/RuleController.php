@@ -4,8 +4,8 @@ namespace panix\mod\rbac\controllers\admin;
 
 use Yii;
 use yii\filters\VerbFilter;
-use panix\engine\controllers\AdminController;
 use yii\web\NotFoundHttpException;
+use panix\engine\controllers\AdminController;
 use panix\mod\rbac\models\BizRuleModel;
 use panix\mod\rbac\models\search\BizRuleSearch;
 
@@ -51,6 +51,7 @@ class RuleController extends AdminController
      */
     public function actionIndex()
     {
+
         $searchModel = Yii::createObject($this->searchClass);
         $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
 

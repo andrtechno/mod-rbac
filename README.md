@@ -189,62 +189,7 @@ To be able create the migrations, you need to add the following code to your con
 13. `assign()`: assign a role to a user
 
 
-### Creating Migrations
 
-To create a new migration, run the following command:
-```bash
-$ php cmd rbac/migrate/create <name>
-```
-
-The required `name` argument gives a brief description about the new migration. For example, if the migration is about creating a new role named admin, you may use the name `create_role_admin` and run the following command:
-
-```bash
-$ php cmd rbac/migrate/create create_role_admin
-```
-
-The above command will create a new PHP class file named m160817_085702_create_role_admin.php in the @app/rbac/migrations directory. The file contains the following code which mainly declares a migration class m160817_085702_create_role_admin with the skeleton code:
-
-```php
-<?php
-
-use panix\mod\rbac\migrations\Migration;
-
-class m160817_085702_create_role_admin extends Migration
-{
-    public function safeUp()
-    {
-
-    }
-
-    public function safeDown()
-    {
-        echo "m160817_085702_create_role_admin cannot be reverted.\n";
-
-        return false;
-    }
-}
-```
-
-The following code shows how you may implement the migration class to create a `admin` role:
-
-```php
-<?php
-
-use panix\mod\rbac\migrations\Migration;
-
-class m160817_085702_create_role_admin extends Migration
-{
-    public function safeUp()
-    {
-        $this->createRole('admin', 'admin has all available permissions.');
-    }
-
-    public function safeDown()
-    {
-        $this->removeRole('admin');
-    }
-}
-```
 > You can see a complex example of migration [here.](https://github.com/yii2mod/base/blob/master/rbac/migrations/m160722_085418_init.php)
 
 ### Applying Migrations
