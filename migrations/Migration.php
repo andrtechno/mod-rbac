@@ -2,7 +2,6 @@
 
 namespace panix\mod\rbac\migrations;
 
-use yii\base\Component;
 use yii\base\InvalidArgumentException;
 use yii\db\MigrationInterface;
 use yii\di\Instance;
@@ -17,7 +16,7 @@ use yii\rbac\Rule;
  *
  * @package panix\mod\rbac\migrations
  */
-class Migration extends Component implements MigrationInterface
+class Migration extends \panix\engine\db\Migration implements MigrationInterface
 {
     /**
      * @var string|DbManager The auth manager component ID that this migration should work with
@@ -31,7 +30,6 @@ class Migration extends Component implements MigrationInterface
     public function init()
     {
         $this->authManager = Instance::ensure($this->authManager, DbManager::class);
-
         parent::init();
     }
 
