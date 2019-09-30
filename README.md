@@ -193,13 +193,13 @@ To be able create the migrations, you need to add the following code to your con
 
 To create a new migration, run the following command:
 ```bash
-$ php yii rbac/migrate/create <name>
+$ php cmd rbac/migrate/create <name>
 ```
 
 The required `name` argument gives a brief description about the new migration. For example, if the migration is about creating a new role named admin, you may use the name `create_role_admin` and run the following command:
 
 ```bash
-$ php yii rbac/migrate/create create_role_admin
+$ php cmd rbac/migrate/create create_role_admin
 ```
 
 The above command will create a new PHP class file named m160817_085702_create_role_admin.php in the @app/rbac/migrations directory. The file contains the following code which mainly declares a migration class m160817_085702_create_role_admin with the skeleton code:
@@ -252,7 +252,7 @@ class m160817_085702_create_role_admin extends Migration
 To upgrade a database to its latest structure, you should apply all available new migrations using the following command:
 
 ```bash
-$ php yii rbac/migrate
+$ php cmd rbac/migrate
 ```
 
 ### Reverting Migrations
@@ -260,14 +260,14 @@ $ php yii rbac/migrate
 To revert (undo) one or multiple migrations that have been applied before, you can run the following command:
 
 ```bash
-$ php yii rbac/migrate/down     # revert the most recently applied migration
-$ php yii rbac/migrate/down 3   # revert the most 3 recently applied migrations
+$ php cmd rbac/migrate/down     # revert the most recently applied migration
+$ php cmd rbac/migrate/down 3   # revert the most 3 recently applied migrations
 ```
 
 ### Redoing Migrations
 
 Redoing migrations means first reverting the specified migrations and then applying again. This can be done as follows:
 ```bash
-$ php yii rbac/migrate/redo     # redo the last applied migration
-$ php yii rbac/migrate/redo 3   # redo the last 3 applied migrations
+$ php cmd rbac/migrate/redo     # redo the last applied migration
+$ php cmd rbac/migrate/redo 3   # redo the last 3 applied migrations
 ```

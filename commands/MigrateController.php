@@ -39,8 +39,8 @@ class MigrateController extends BaseMigrateController
     /**
      * @inheritdoc
      */
-    public $migrationPath = '@yii/rbac/migrations';
-    //public $migrationPath = '@vendor/panix/mod-rbac/migrations';
+    //public $migrationPath = '@yii/rbac/migrations';
+    public $migrationPath = '@vendor/panix/mod-rbac/migrations';
 
     /**
      * @inheritdoc
