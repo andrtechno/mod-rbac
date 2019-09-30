@@ -17,10 +17,9 @@ class m999999_004914_create_role_admin extends Migration
 
     public function up()
     {
-        $this->createRole('admin', 'admin has all available permissions.');
+        $this->createRole('admin', 'Администратор имеет все доступные разрешения.');
         $this->assign('admin',1);
-        //$this->createPermission('/admin/*');
-        //$this->createRule('admin');
+        $this->createPermission('/admin/*');
         //$this->addChild();
         $this->createRule('user', \panix\mod\rbac\rules\UserRule::class);
     }
