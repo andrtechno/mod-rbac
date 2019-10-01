@@ -4,7 +4,7 @@ namespace panix\mod\rbac\controllers\admin;
 
 use Yii;
 use yii\rbac\Item;
-use panix\mod\rbac\base\ItemController;
+use panix\engine\controllers\AdminController;
 use panix\mod\rbac\models\AuthItemModel;
 use panix\mod\rbac\models\search\AuthItemSearch;
 
@@ -13,7 +13,7 @@ use panix\mod\rbac\models\search\AuthItemSearch;
  *
  * @package panix\mod\rbac\controllers
  */
-class RoleController extends ItemController
+class RoleController extends AdminController
 {
 
     public function actionIndex()

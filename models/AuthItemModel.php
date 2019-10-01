@@ -20,6 +20,7 @@ use yii\rbac\Rule;
  */
 class AuthItemModel extends Model
 {
+    public $module = 'rbac';
     /**
      * @var string auth item name
      */

@@ -19,7 +19,7 @@ RbacAsset::register($this);
 
 
 $items = [];
-foreach ($modelClass->getAvailableAndAssignedRoutes()['assigned'] as $item) {
+foreach ($modelClass->getAvailableAndAssignedRoutes()['assigned'] as $k=>$item) {
     $items[$item] = $item;
 }
 
@@ -45,10 +45,11 @@ foreach ($modelClass->getAvailableAndAssignedRoutes()['assigned'] as $item) {
 
             <?php
 
+
             echo \panix\ext\bootstrapselect\BootstrapSelect::widget([
                 'name' => 'items',
                 'value' => array_keys($test2['assigned']),
-                'items' => $test2,
+                'items' => $test2['available'],
                 'options' => [
                     'multiple' => true
                 ],

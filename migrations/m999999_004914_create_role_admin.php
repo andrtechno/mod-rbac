@@ -36,7 +36,7 @@ class m999999_004914_create_role_admin extends Migration
 
         $this->assign('admin', 1);
 
-        //$this->addChild();
+        $this->addChild('admin','/admin/*');
 
     }
 
