@@ -28,7 +28,7 @@ class AccessControl extends \yii\filters\AccessControl
     /**
      * @inheritdoc
      */
-    public function beforeAction($action): bool
+    public function beforeAction($action)
     {
         if (Yii::$app->user->can('/admin/*')) {//SuperAdmin
             return true;
@@ -40,11 +40,17 @@ class AccessControl extends \yii\filters\AccessControl
 
             if (Yii::$app->user->can('/' . $action->getUniqueId(), $params)) {
                 return true;
+            }else{
+                if(!Yii::$app->user->isGuest)
+                    return Yii::$app->response->redirect('/')->send();
             }
 
             do {
                 if (Yii::$app->user->can('/' . ltrim($controller->getUniqueId() . '/*', '/'))) {
                     return true;
+                }else{
+                    if(!Yii::$app->user->isGuest)
+                        return Yii::$app->response->redirect('/')->send();
                 }
                 $controller = $controller->module;
             } while ($controller !== null);
