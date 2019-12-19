@@ -17,11 +17,6 @@ use panix\mod\rbac\models\search\AssignmentSearch;
 class AssignmentController extends AdminController
 {
     /**
-     * @var \yii\web\IdentityInterface the class name of the [[identity]] object
-     */
-    public $userIdentityClass;
-
-    /**
      * @var string search class name for assignments search
      */
     public $searchClass = [
@@ -50,10 +45,6 @@ class AssignmentController extends AdminController
     {
         parent::init();
 
-        if ($this->userIdentityClass === null) {
-            $this->userIdentityClass = Yii::$app->user->identityClass;
-        }
-
         if (empty($this->gridViewColumns)) {
             $this->gridViewColumns = [
                 $this->idField,
@@ -68,7 +59,7 @@ class AssignmentController extends AdminController
     public function behaviors(): array
     {
         return [
-            'verbs' => [
+           /* 'verbs' => [
                 'class' => 'yii\filters\VerbFilter',
                 'actions' => [
                     'index' => ['get'],
@@ -83,7 +74,7 @@ class AssignmentController extends AdminController
                 'formats' => [
                     'application/json' => Response::FORMAT_JSON,
                 ],
-            ],
+            ],*/
         ];
     }
 
@@ -98,7 +89,7 @@ class AssignmentController extends AdminController
         $searchModel = Yii::createObject($this->searchClass);
 
         if ($searchModel instanceof AssignmentSearch) {
-            $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $this->userIdentityClass, $this->idField, $this->usernameField);
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams, Yii::$app->user->identityClass, $this->idField, $this->usernameField);
         } else {
             $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         }
@@ -128,9 +119,8 @@ class AssignmentController extends AdminController
     {
         $model = $this->findModel($id);
 
-        $userName = $model->user->{$this->usernameField};
 
-        $this->pageName = Yii::t('rbac/default', 'ASSIGNMENT', $userName);
+        $this->pageName = Yii::t('rbac/default', 'ASSIGNMENT', $model->user->username);
         $this->breadcrumbs[] = [
             'label' => Yii::t('rbac/default', 'MODULE_NAME'),
             'url' => ['/admin/rbac']
@@ -190,7 +180,7 @@ class AssignmentController extends AdminController
      */
     protected function findModel(int $id)
     {
-        $class = $this->userIdentityClass;
+        $class = Yii::$app->user->identityClass;
 
         if (($user = $class::findIdentity($id)) !== null) {
             return new AssignmentModel($user);
