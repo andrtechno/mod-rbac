@@ -37,6 +37,7 @@ foreach ($modelClass->getAvailableAndAssignedRoutes()['assigned'] as $k=>$item) 
 
                     <?php echo $this->render('_form', [
                         'model' => $model,
+                        'test2'=>$test2
                     ]); ?>
 
             </div>
@@ -46,20 +47,6 @@ foreach ($modelClass->getAvailableAndAssignedRoutes()['assigned'] as $k=>$item) 
             <?php
 
 
-            echo \panix\ext\bootstrapselect\BootstrapSelect::widget([
-                'name' => 'items',
-                'value' => array_keys($test2['assigned']),
-                'items' => $test2['available'],
-                'options' => [
-                    'multiple' => true
-                ],
-                'jsOptions' => [
-                    'width' => '100%',
-                    'liveSearch' => true,
-                    'dropupAuto' => false,
-                    'dropdownAlignRight' => false
-                ]
-            ]);
 
             /* echo Html::dropDownList('items2', array_keys($test2['assigned']), $items, [
                  'class' => 'form-control',

@@ -65,7 +65,7 @@ class PermissionController extends ItemController
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success', Yii::t('rbac/default', 'Item has been saved.'));
 
-            return $this->redirect(['view', 'id' => $model->name]);
+            return $this->redirect(['update', 'id' => $model->name]);
         }
 
         return $this->render('update', ['model' => $model]);

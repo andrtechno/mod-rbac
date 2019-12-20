@@ -55,7 +55,7 @@ class AuthItemModel extends Model
      * @var Item
      */
     private $_item;
-
+    public $items;
     /**
      * AuthItemModel constructor.
      *
@@ -85,7 +85,7 @@ class AuthItemModel extends Model
     {
         return [
             [['name', 'description', 'data', 'ruleName'], 'trim'],
-            [['name', 'type'], 'required'],
+            [['name', 'type','items'], 'required'],
             ['ruleName', 'checkRule'],
             ['name', 'validateName', 'when' => function () {
                 return $this->getIsNewRecord() || ($this->_item->name != $this->name);
@@ -183,7 +183,9 @@ class AuthItemModel extends Model
      */
     public function save(): bool
     {
+
         if ($this->validate()) {
+
             if ($this->_item === null) {
                 if ($this->type == Item::TYPE_ROLE) {
                     $this->_item = $this->manager->createRole($this->name);
@@ -207,13 +209,21 @@ class AuthItemModel extends Model
             } else {
                 $this->manager->update($oldName, $this->_item);
             }
-
+$this->setPerm();
             return true;
         }
 
         return false;
     }
-
+    public function setPerm(){
+        //print_r($this->items);
+        $this->addChildren($this->items);
+        /*foreach ($this->items as $item){
+            $this->manager->add($item);
+            $this->manager->addChild($this->_item, $child);
+        }*/
+       // die('pe');
+    }
     /**
      * Add child to Item
      *

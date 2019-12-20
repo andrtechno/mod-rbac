@@ -2,6 +2,7 @@
 
 namespace panix\mod\rbac\controllers\admin;
 
+use Mpdf\Tag\P;
 use Yii;
 use yii\rbac\Item;
 use panix\engine\controllers\AdminController;
@@ -44,7 +45,6 @@ class RoleController extends AdminController
     }
 
 
-
     public function actionUpdate(string $id)
     {
         $model = $this->findModel($id);
@@ -62,10 +62,14 @@ class RoleController extends AdminController
         ];
         $this->breadcrumbs[] = $this->pageName;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', Yii::t('rbac/default', 'Item has been saved.'));
+        $post = Yii::$app->request->post();
+        if ($model->load($post)) {
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', Yii::t('rbac/default', 'Item has been saved.'));
+            }
 
-            return $this->redirect(['view', 'id' => $model->name]);
+
+            return $this->redirect(['update', 'id' => $model->name]);
         }
 
         return $this->render('update', ['model' => $model]);
@@ -75,7 +79,6 @@ class RoleController extends AdminController
     {
         $model = new AuthItemModel();
         $model->type = Item::TYPE_ROLE;
-
 
 
         $this->pageName = Yii::t('rbac/default', 'CREATE_ROLE');
@@ -90,10 +93,13 @@ class RoleController extends AdminController
         $this->breadcrumbs[] = $this->pageName;
 
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', Yii::t('rbac/default', 'Item has been saved.'));
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', Yii::t('rbac/default', 'Item has been saved.'));
+            }
 
-            return $this->redirect(['view', 'id' => $model->name]);
+
+            return $this->redirect(['update', 'id' => $model->name]);
         }
 
         return $this->render('create', ['model' => $model]);
