@@ -31,7 +31,7 @@ use panix\engine\bootstrap\ActiveForm;
 </div>
 
 <div class="card-footer text-center">
-    <?= Html::submitButton($model->getIsNewRecord() ? Yii::t('app', 'CREATE') : Yii::t('app', 'UPDATE'), ['class' => $model->getIsNewRecord() ? 'btn btn-success' : 'btn btn-primary']); ?>
+    <?= Html::submitButton($model->getIsNewRecord() ? Yii::t('app/default', 'CREATE') : Yii::t('app/default', 'UPDATE'), ['class' => $model->getIsNewRecord() ? 'btn btn-success' : 'btn btn-primary']); ?>
 </div>
 
 <?php ActiveForm::end(); ?>
