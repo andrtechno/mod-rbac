@@ -6,7 +6,7 @@ use panix\mod\rbac\models\AuthItemModel;
 
 $modelClass = Yii::createObject(\panix\mod\rbac\models\RouteModel::class);
 
-$test2 = AuthItemModel::find('admin')->getItemsByBackend();
+
 
 
 
@@ -24,6 +24,8 @@ foreach ($modelClass->getAvailableAndAssignedRoutes()['assigned'] as $k=>$item) 
 }
 
 
+//\panix\engine\CMS::dump($model->getItems());die;
+
 ?>
 
 <div class="auth-item-update">
@@ -37,7 +39,6 @@ foreach ($modelClass->getAvailableAndAssignedRoutes()['assigned'] as $k=>$item) 
 
                     <?php echo $this->render('_form', [
                         'model' => $model,
-                        'test2'=>$test2
                     ]); ?>
 
             </div>

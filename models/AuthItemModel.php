@@ -216,12 +216,12 @@ $this->setPerm();
         return false;
     }
     public function setPerm(){
-        //print_r($this->items);
+       // print_r($this->items);die;
         $this->addChildren($this->items);
-        /*foreach ($this->items as $item){
-            $this->manager->add($item);
-            $this->manager->addChild($this->_item, $child);
-        }*/
+        //foreach ($this->items as $item){
+        //    $this->manager->add($item);
+           // $this->manager->addChild($this->_item, $child);
+       // }
        // die('pe');
     }
     /**
@@ -301,7 +301,7 @@ $this->setPerm();
     }
 
 
-    public function getItemsByBackend(): array
+    public function getItemsDropDown(): array
     {
         $available = [];
         $assigned = [];
