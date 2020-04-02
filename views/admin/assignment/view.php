@@ -14,7 +14,7 @@ RbacAsset::register($this);
 
 $modelClass = Yii::createObject(\panix\mod\rbac\models\RouteModel::class);
 
-$test2 = \panix\mod\rbac\models\AuthItemModel::find('admin')->getItemsByBackend();
+$test2 = \panix\mod\rbac\models\AuthItemModel::find('admin')->getItemsDropDown();
 
 $items = [];
 foreach ($modelClass->getAvailableAndAssignedRoutes()['assigned'] as $k=>$item) {
