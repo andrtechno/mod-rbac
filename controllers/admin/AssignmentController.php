@@ -59,22 +59,22 @@ class AssignmentController extends AdminController
     public function behaviors(): array
     {
         return [
-           /* 'verbs' => [
-                'class' => 'yii\filters\VerbFilter',
-                'actions' => [
-                    'index' => ['get'],
-                    'view' => ['get'],
-                    'assign' => ['post'],
-                    'remove' => ['post'],
-                ],
-            ],
-            'contentNegotiator' => [
-                'class' => 'yii\filters\ContentNegotiator',
-                'only' => ['assign', 'remove'],
-                'formats' => [
-                    'application/json' => Response::FORMAT_JSON,
-                ],
-            ],*/
+            /* 'verbs' => [
+                 'class' => 'yii\filters\VerbFilter',
+                 'actions' => [
+                     'index' => ['get'],
+                     'view' => ['get'],
+                     'assign' => ['post'],
+                     'remove' => ['post'],
+                 ],
+             ],
+             'contentNegotiator' => [
+                 'class' => 'yii\filters\ContentNegotiator',
+                 'only' => ['assign', 'remove'],
+                 'formats' => [
+                     'application/json' => Response::FORMAT_JSON,
+                 ],
+             ],*/
         ];
     }
 
