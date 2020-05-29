@@ -49,26 +49,32 @@ class Module extends WebModule
                         'label' => Yii::t('rbac/default', 'MODULE_NAME'),
                         'url' => '#',
                         'icon' => $this->icon,
+                        'visible' => Yii::$app->user->can('/rbac/admin/assignment/index') || Yii::$app->user->can('/rbac/admin/assignment/*'),
                         'items' => [
                             [
                                 'label' => Yii::t('rbac/default', 'ASSIGNMENTS'),
                                 'url' => ['/admin/rbac/assignment/index'],
+                                'visible' => Yii::$app->user->can('/rbac/admin/assignment/index') || Yii::$app->user->can('/rbac/admin/assignment/*'),
                             ],
                             [
                                 'label' => Yii::t('rbac/default', 'ROLES'),
                                 'url' => ['/admin/rbac/role/index'],
+                                'visible' => Yii::$app->user->can('/rbac/admin/role/index') || Yii::$app->user->can('/rbac/admin/role/*'),
                             ],
                             [
                                 'label' => Yii::t('rbac/default', 'PERMISSIONS'),
                                 'url' => ['/admin/rbac/permission/index'],
+                                'visible' => Yii::$app->user->can('/rbac/admin/permission/index') || Yii::$app->user->can('/rbac/admin/permission/*'),
                             ],
                             [
                                 'label' => Yii::t('rbac/default', 'ROUTES'),
                                 'url' => ['/admin/rbac/route/index'],
+                                'visible' => Yii::$app->user->can('/rbac/admin/route/index') || Yii::$app->user->can('/rbac/admin/route/*'),
                             ],
                             [
                                 'label' => Yii::t('rbac/default', 'RULES'),
                                 'url' => ['/admin/rbac/rule/index'],
+                                'visible' => Yii::$app->user->can('/rbac/admin/rule/index') || Yii::$app->user->can('/rbac/admin/rule/*'),
                             ],
                         ]
                     ],
