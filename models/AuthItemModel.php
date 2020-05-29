@@ -315,22 +315,22 @@ $this->setPerm();
             $type = $name[0] == '/' ? 'route' : 'permission';
             if (strpos($name, '/admin/') === false) {
                 $available['frontend'][$name] = $name;
-            }else{
+            } else {
                 $available['backend'][$name] = $name;
             }
         }
-
-        foreach ($this->manager->getChildren($this->_item->name) as $item) {
-            $type = $item->type == 1 ? 'role' : ($item->name[0] == '/' ? 'route' : 'permission');
-            if (strpos($item->name, '/admin/') === false) {
-                $assigned['frontend'][$item->name] = $item->name;
-            } else {
-                $assigned['backend'][$item->name] = $item->name;
+        if ($this->_item) {
+            foreach ($this->manager->getChildren($this->_item->name) as $item) {
+                $type = $item->type == 1 ? 'role' : ($item->name[0] == '/' ? 'route' : 'permission');
+                if (strpos($item->name, '/admin/') === false) {
+                    $assigned[$item->name] = $item->name;
+                } else {
+                    $assigned[$item->name] = $item->name;
+                }
+               // unset($available[$item->name]);
             }
-            unset($available[$item->name]);
         }
-
-        unset($available[$this->name]);
+        //unset($available[$this->name]);
 
         return [
             'available' => $available,

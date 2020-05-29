@@ -31,7 +31,8 @@ $form = ActiveForm::begin();
 
 
         <?php
-        $model->items = array_keys($model->getItems()['assigned']);
+      //  $model->items = array_keys($model->getItems()['assigned']);
+        $model->items = $items['assigned'];
         echo $form->field($model, 'items')->widget(\panix\ext\bootstrapselect\BootstrapSelect::class, [
             'items' => $items['available'],
             'options' => [

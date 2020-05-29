@@ -41,8 +41,9 @@ class AccessControl extends \yii\filters\AccessControl
             if (Yii::$app->user->can('/' . $action->getUniqueId(), $params)) {
                 return true;
             }else{
-                if(!Yii::$app->user->isGuest)
-                    return Yii::$app->response->redirect('/')->send();
+				throw new ForbiddenHttpException();
+                //if(!Yii::$app->user->isGuest)
+                //    return Yii::$app->response->redirect('/')->send();
             }
 
             do {
