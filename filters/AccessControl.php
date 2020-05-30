@@ -7,6 +7,7 @@ use yii\base\Action;
 use yii\base\Module;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
+use yii\web\ForbiddenHttpException;
 
 /**
  * Class AccessControl
@@ -30,7 +31,7 @@ class AccessControl extends \yii\filters\AccessControl
      */
     public function beforeAction($action)
     {
-        if (Yii::$app->user->can('/admin/*')) {//SuperAdmin
+        if (Yii::$app->user->can('admin')) {//SuperAdmin
             return true;
         }
         if (!Yii::$app->request->isAjax) {
