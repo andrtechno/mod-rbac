@@ -23,10 +23,6 @@ class RbacAsset extends AssetBundle
         'js/rbac.js',
     ];
 
-    public $css = [
-        'css/rbac.css',
-    ];
-
     /**
      * @var array
      */
