@@ -32,11 +32,11 @@ class RoleController extends AdminController
                 'options' => ['class' => 'btn btn-success']
             ]
         ];
-        $this->breadcrumbs[] = [
+        $this->view->params['breadcrumbs'][] = [
             'label' => Yii::t('rbac/default', 'MODULE_NAME'),
             'url' => '#',
         ];
-        $this->breadcrumbs[] = $this->pageName;
+        $this->view->params['breadcrumbs'][] = $this->pageName;
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
@@ -52,15 +52,15 @@ class RoleController extends AdminController
 
 
         $this->pageName = Yii::t('rbac/default', 'UPDATE_ROLE', $model->name);
-        $this->breadcrumbs[] = [
+        $this->view->params['breadcrumbs'][] = [
             'label' => Yii::t('rbac/default', 'MODULE_NAME'),
             'url' => ['#'],
         ];
-        $this->breadcrumbs[] = [
+        $this->view->params['breadcrumbs'][] = [
             'label' => Yii::t('rbac/default', 'ROLES'),
             'url' => ['index'],
         ];
-        $this->breadcrumbs[] = $this->pageName;
+        $this->view->params['breadcrumbs'][] = $this->pageName;
 
         $post = Yii::$app->request->post();
         if ($model->load($post)) {
@@ -82,15 +82,15 @@ class RoleController extends AdminController
 
 
         $this->pageName = Yii::t('rbac/default', 'CREATE_ROLE');
-        $this->breadcrumbs[] = [
+        $this->view->params['breadcrumbs'][] = [
             'label' => Yii::t('rbac/default', 'MODULE_NAME'),
             'url' => ['#'],
         ];
-        $this->breadcrumbs[] = [
+        $this->view->params['breadcrumbs'][] = [
             'label' => Yii::t('rbac/default', 'ROLES'),
             'url' => ['index'],
         ];
-        $this->breadcrumbs[] = $this->pageName;
+        $this->view->params['breadcrumbs'][] = $this->pageName;
 
 
         if ($model->load(Yii::$app->request->post())) {

@@ -95,11 +95,11 @@ class AssignmentController extends AdminController
         }
 
         $this->pageName = Yii::t('rbac/default', 'ASSIGNMENTS');
-        $this->breadcrumbs[] = [
+        $this->view->params['breadcrumbs'][] = [
             'label' => Yii::t('rbac/default', 'MODULE_NAME'),
             'url' => ['/admin/rbac']
         ];
-        $this->breadcrumbs[] = $this->pageName;
+        $this->view->params['breadcrumbs'][] = $this->pageName;
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
@@ -121,15 +121,15 @@ class AssignmentController extends AdminController
 
 
         $this->pageName = Yii::t('rbac/default', 'ASSIGNMENT', $model->user->username);
-        $this->breadcrumbs[] = [
+        $this->view->params['breadcrumbs'][] = [
             'label' => Yii::t('rbac/default', 'MODULE_NAME'),
             'url' => ['/admin/rbac']
         ];
-        $this->breadcrumbs[] = [
+        $this->view->params['breadcrumbs'][] = [
             'label' => Yii::t('rbac/default', 'ASSIGNMENTS'),
             'url' => ['/admin/rbac/assignment']
         ];
-        $this->breadcrumbs[] = $this->pageName;
+        $this->view->params['breadcrumbs'][] = $this->pageName;
 
         return $this->render('view', [
             'model' => $model,

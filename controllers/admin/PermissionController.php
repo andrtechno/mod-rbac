@@ -32,11 +32,11 @@ class PermissionController extends ItemController
                 'options' => ['class' => 'btn btn-success']
             ]
         ];
-        $this->breadcrumbs[] = [
+        $this->view->params['breadcrumbs'][] = [
             'label' => Yii::t('rbac/default', 'MODULE_NAME'),
             'url' => '#',
         ];
-        $this->breadcrumbs[] = $this->pageName;
+        $this->view->params['breadcrumbs'][] = $this->pageName;
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
@@ -52,15 +52,15 @@ class PermissionController extends ItemController
         $model = $this->findModel($id);
 
         $this->pageName = Yii::t('rbac/default', 'UPDATE_PERMISSION', $model->name);
-        $this->breadcrumbs[] = [
+        $this->view->params['breadcrumbs'][] = [
             'label' => Yii::t('rbac/default', 'MODULE_NAME'),
             'url' => ['#'],
         ];
-        $this->breadcrumbs[] = [
+        $this->view->params['breadcrumbs'][] = [
             'label' => Yii::t('rbac/default', 'PERMISSIONS'),
             'url' => ['index'],
         ];
-        $this->breadcrumbs[] = $this->pageName;
+        $this->view->params['breadcrumbs'][] = $this->pageName;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success', Yii::t('rbac/default', 'Item has been saved.'));
@@ -79,15 +79,15 @@ class PermissionController extends ItemController
 
 
         $this->pageName = Yii::t('rbac/default', 'CREATE_PERMISSIONS');
-        $this->breadcrumbs[] = [
+        $this->view->params['breadcrumbs'][] = [
             'label' => Yii::t('rbac/default', 'MODULE_NAME'),
             'url' => ['#'],
         ];
-        $this->breadcrumbs[] = [
+        $this->view->params['breadcrumbs'][] = [
             'label' => Yii::t('rbac/default', 'PERMISSIONS'),
             'url' => ['index'],
         ];
-        $this->breadcrumbs[] = $this->pageName;
+        $this->view->params['breadcrumbs'][] = $this->pageName;
 
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

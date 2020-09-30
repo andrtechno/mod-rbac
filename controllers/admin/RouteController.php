@@ -59,11 +59,11 @@ class RouteController extends AdminController
     {
         $model = Yii::createObject($this->modelClass);
         $this->pageName = Yii::t('rbac/default', 'ROUTES');
-        $this->breadcrumbs[] = [
+        $this->view->params['breadcrumbs'][] = [
             'label' => Yii::t('rbac/default', 'MODULE_NAME'),
             'url' => ['/admin/rbac']
         ];
-        $this->breadcrumbs[] = $this->pageName;
+        $this->view->params['breadcrumbs'][] = $this->pageName;
         return $this->render('index', ['routes' => $model->getAvailableAndAssignedRoutes()]);
     }
 
