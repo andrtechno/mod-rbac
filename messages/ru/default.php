@@ -19,7 +19,6 @@ return [
 
     'PERMISSIONS' => 'Разрешения',
     'REFRESH' => 'Обновить',
-    'Remove' => 'Удалить',
     'ROLES' => 'Роли',
     'ROLE : {0}' => 'Роль : {0}',
     'CREATE_ROLE' => 'Добавить роль',

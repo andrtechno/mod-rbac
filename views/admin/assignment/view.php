@@ -75,7 +75,7 @@ $opts=Json::htmlEncode([
                 <?php echo Html::a('&lt;&lt;', ['/admin/rbac/assignment/remove', 'id' => $model->userId], [
                     'class' => 'btn btn-danger btn-assign',
                     'data-target' => 'assigned',
-                    'title' => Yii::t('rbac/default', 'Remove'),
+                    'title' => Yii::t('app/default', 'DELETE'),
                 ]); ?>
             </div>
         </div>

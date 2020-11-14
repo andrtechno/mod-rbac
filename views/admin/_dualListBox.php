@@ -31,7 +31,7 @@ $this->registerJs("var _opts = {$opts};", View::POS_BEGIN);
                 <?php echo Html::a(Html::icon('double-arrow-left'), $removeUrl, [
                     'class' => 'btn btn-danger btn-assign',
                     'data-target' => 'assigned',
-                    'title' => Yii::t('rbac/default', 'Remove'),
+                    'title' => Yii::t('app/default', 'DELETE'),
                 ]); ?>
                 <?php echo Html::a(Html::icon('double-arrow-right'), $assignUrl, [
                     'class' => 'btn btn-success btn-assign',
