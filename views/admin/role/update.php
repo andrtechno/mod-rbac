@@ -30,7 +30,7 @@ foreach ($modelClass->getAvailableAndAssignedRoutes()['assigned'] as $k=>$item) 
 
 <div class="auth-item-update">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-12">
             <div class="card">
                 <div class="card-header">
                     <h5><?php echo Html::encode($this->context->pageName); ?></h5>

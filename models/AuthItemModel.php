@@ -2,8 +2,10 @@
 
 namespace panix\mod\rbac\models;
 
+use panix\engine\CMS;
 use Yii;
 use panix\engine\base\Model;
+use yii\base\Exception;
 use yii\helpers\Json;
 use yii\rbac\Item;
 use yii\rbac\Rule;
@@ -209,7 +211,7 @@ class AuthItemModel extends Model
             } else {
                 $this->manager->update($oldName, $this->_item);
             }
-$this->setPerm();
+            $this->setPerm();
             return true;
         }
 
@@ -218,7 +220,7 @@ $this->setPerm();
     public function setPerm(){
        // print_r($this->items);die;
         $this->addChildren($this->items);
-        //foreach ($this->items as $item){
+       // foreach ($this->items as $item){
         //    $this->manager->add($item);
            // $this->manager->addChild($this->_item, $child);
        // }
@@ -234,12 +236,18 @@ $this->setPerm();
     public function addChildren(array $items): bool
     {
         if ($this->_item) {
+          //  CMS::dump($items);die;
             foreach ($items as $name) {
                 $child = $this->manager->getPermission($name);
                 if (empty($child) && $this->type == Item::TYPE_ROLE) {
                     $child = $this->manager->getRole($name);
                 }
-                $this->manager->addChild($this->_item, $child);
+                try{
+                    $this->manager->addChild($this->_item, $child);
+                }catch (Exception $e){
+
+                }
+
             }
         }
 
