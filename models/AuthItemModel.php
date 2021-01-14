@@ -58,6 +58,7 @@ class AuthItemModel extends Model
      */
     private $_item;
     public $items;
+
     /**
      * AuthItemModel constructor.
      *
@@ -87,7 +88,7 @@ class AuthItemModel extends Model
     {
         return [
             [['name', 'description', 'data', 'ruleName'], 'trim'],
-            [['name', 'type','items'], 'required'],
+            [['name', 'type', 'items'], 'required'],
             ['ruleName', 'checkRule'],
             ['name', 'validateName', 'when' => function () {
                 return $this->getIsNewRecord() || ($this->_item->name != $this->name);
@@ -206,26 +207,36 @@ class AuthItemModel extends Model
             $this->_item->ruleName = $this->ruleName;
             $this->_item->data = Json::decode($this->data);
 
+            foreach ($this->manager->getPermissions() as $key => $permission) {
+                $this->manager->removeChild($this->_item, $permission);
+            }
+
+
             if ($isNew) {
                 $this->manager->add($this->_item);
             } else {
                 $this->manager->update($oldName, $this->_item);
             }
-            $this->setPerm();
+
+            // $this->setPerm();
+            $this->addChildren($this->items);
             return true;
         }
 
         return false;
     }
-    public function setPerm(){
-       // print_r($this->items);die;
+
+    public function setPerm()
+    {
+        // print_r($this->items);die;
         $this->addChildren($this->items);
-       // foreach ($this->items as $item){
+        // foreach ($this->items as $item){
         //    $this->manager->add($item);
-           // $this->manager->addChild($this->_item, $child);
-       // }
-       // die('pe');
+        // $this->manager->addChild($this->_item, $child);
+        // }
+        // die('pe');
     }
+
     /**
      * Add child to Item
      *
@@ -236,15 +247,20 @@ class AuthItemModel extends Model
     public function addChildren(array $items): bool
     {
         if ($this->_item) {
-          //  CMS::dump($items);die;
+
+
             foreach ($items as $name) {
                 $child = $this->manager->getPermission($name);
+
                 if (empty($child) && $this->type == Item::TYPE_ROLE) {
                     $child = $this->manager->getRole($name);
                 }
-                try{
+                try {
+
                     $this->manager->addChild($this->_item, $child);
-                }catch (Exception $e){
+
+
+                } catch (Exception $e) {
 
                 }
 
@@ -335,7 +351,7 @@ class AuthItemModel extends Model
                 } else {
                     $assigned[$item->name] = $item->name;
                 }
-               // unset($available[$item->name]);
+                // unset($available[$item->name]);
             }
         }
         //unset($available[$this->name]);
