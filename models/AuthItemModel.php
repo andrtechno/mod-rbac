@@ -211,6 +211,10 @@ class AuthItemModel extends Model
                 $this->manager->removeChild($this->_item, $permission);
             }
 
+            foreach ($this->manager->getRoles() as $key => $role) {
+                $this->manager->removeChild($this->_item, $role);
+            }
+
 
             if ($isNew) {
                 $this->manager->add($this->_item);

@@ -58,7 +58,7 @@ $form = ActiveForm::begin();
                         'size'=>'10'
                     ]
                 ]);*/
-
+                unset($items['available']['frontend']);
                 echo $form->field($model, 'items')->dropdownList($items['available'], [
                     'multiple' => true,
                     'class' => 'form-control list',
