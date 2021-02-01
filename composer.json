@@ -7,7 +7,7 @@
         "rbac gui",
         "rbac module"
     ],
-    "type": "yii2-extension",
+    "type": "pixelion-module",
     "license": "MIT",
     "authors": [
         {
