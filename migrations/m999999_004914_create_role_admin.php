@@ -1,8 +1,5 @@
 <?php
 
-namespace panix\mod\rbac\migrations;
-
-
 /**
  * Generation migrate by PIXELION CMS
  *
@@ -13,7 +10,7 @@ namespace panix\mod\rbac\migrations;
  */
 use panix\mod\rbac\models\RouteModel;
 
-class m999999_004914_create_role_admin extends Migration
+class m999999_004914_create_role_admin extends \panix\mod\rbac\migrations\Migration
 {
 
     public function up()
