@@ -2,7 +2,7 @@
 
 namespace panix\mod\rbac;
 
-use panix\mod\admin\widgets\sidebar\BackendNav;
+use app\web\themes\dashboard\sidebar\BackendNav;
 use Yii;
 use panix\engine\WebModule;
 
