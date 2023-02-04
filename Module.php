@@ -43,7 +43,7 @@ class Module extends WebModule
     public function getAdminMenu()
     {
         return [
-            'system' => [
+            'user' => [
                 'items' => [
                     [
                         'label' => Yii::t('rbac/default', 'MODULE_NAME'),
