@@ -85,6 +85,6 @@ class Module extends WebModule
 
     public function getAdminSidebar()
     {
-        return (new BackendNav())->findMenu('system')['items'];
+        return Yii::$app->findMenu['system']['items'];
     }
 }
