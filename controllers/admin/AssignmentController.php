@@ -59,7 +59,7 @@ class AssignmentController extends AdminController
     public function behaviors(): array
     {
         return [
-            /* 'verbs' => [
+             'verbs' => [
                  'class' => 'yii\filters\VerbFilter',
                  'actions' => [
                      'index' => ['get'],
@@ -74,7 +74,7 @@ class AssignmentController extends AdminController
                  'formats' => [
                      'application/json' => Response::FORMAT_JSON,
                  ],
-             ],*/
+             ],
         ];
     }
 

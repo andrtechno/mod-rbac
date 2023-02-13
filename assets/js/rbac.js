@@ -61,5 +61,5 @@ function search(target) {
 }
 
 // initial
-//search('available');
-//search('assigned');
+search('available');
+search('assigned');
